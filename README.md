@@ -13,11 +13,11 @@ I'm a college student that loves to program, and is aiming for a career in AI/ML
 _This usually indicates personal progress during the course of the project, rather than indicating good code_
 _In fact, it usually means the opposite since it usually involves me doing something for the first time_
   - [GalaxyGen](https://github.com/Bytestorm5/GalaxyGen)
-  - - Pseudo-Random Galaxy Generator following the Star Wars "Hyperlane" system. Includes web editor and various tools to tune/modify the output.
+  -- Pseudo-Random Galaxy Generator following the Star Wars "Hyperlane" system. Includes web editor and various tools to tune/modify the output.
   - [Chess Bot Thunderdome](https://github.com/Bytestorm5/ChessBot-Thunderdome) : [Website](https://thunderdome.yeruman.dev/)
-  - - Full Stack application for simulating chess games between a set of subpar chess engines- includes functionality for combining engines to emulate ensemble learning. Back-end built in Rust, Front-end built in React. Uses MongoDB Database to store game data.
+  -- Full Stack application for simulating chess games between a set of subpar chess engines- includes functionality for combining engines to emulate ensemble learning. Back-end built in Rust, Front-end built in React. Uses MongoDB Database to store game data.
   - [Stingus Stats](https://stingus.yeruman.dev/)
-  - - Full stack application for generating statistics of item drop rates in Destiny 2. Back-end data collector built in C#, Front-end built with Flask and HTML templates. Uses MongoDB to track drops.
+  -- Full stack application for generating statistics of item drop rates in Destiny 2. Back-end data collector built in C#, Front-end built with Flask and HTML templates. Uses MongoDB to track drops.
 
 #### Contact
 TBD
