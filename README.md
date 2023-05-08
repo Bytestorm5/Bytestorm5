@@ -3,10 +3,11 @@ I'm a college student that loves to program, and is aiming for a career in AI/ML
 
 #### What I'm working on
 \[No public projects currently]
+
 #### What I'm trying to learn
  - How do you gather data for language models?
  - How do I make good user interfaces?
- - 
+
 #### Projects I'm proud of
 _This usually indicates personal progress during the course of the project, rather than indicating good code_
 _In fact, it usually means the opposite since it usually involves me doing something for the first time_
