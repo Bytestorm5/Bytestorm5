@@ -10,7 +10,7 @@ I'm a college student that loves to program, and is aiming for a career in AI/ML
  - How do I make good user interfaces?
 
 #### Projects I'm proud of
-_This usually indicates personal progress during the course of the project, rather than indicating good code_
+_This usually indicates personal progress during the course of the project, rather than indicating good code._
 _In fact, it usually means the opposite since it usually involves me doing something for the first time_
   - [GalaxyGen](https://github.com/Bytestorm5/GalaxyGen)
       - Pseudo-Random Galaxy Generator following the Star Wars "Hyperlane" system. Includes web editor and various tools to tune/modify the output.
