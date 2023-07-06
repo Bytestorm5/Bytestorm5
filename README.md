@@ -6,8 +6,9 @@ I'm a college student that loves to program, and is aiming for a career in AI/ML
  - Building a Portfolio Website/Blog
 
 #### What I'm trying to learn
- - How do I gather data for language models?
- - How do I make good user interfaces?
+ - Jira, Terraform, all the cool professional coder stuff
+ - SaaS Pegasus / Django
+ - Stonks
 
 #### Projects I'm proud of
 _This usually indicates personal progress during the course of the project, rather than indicating good code._
@@ -20,7 +21,7 @@ _In fact, it usually means the opposite since it usually involves me doing somet
       - This was my first serious foray into both Rust and React, while also being my first serious look into making a chess engine. Lots of firsts here, very fun project overall.
   - [Stingus Stats](https://stingus.yeruman.dev/)
       - Full stack application for generating statistics of item drop rates in Destiny 2. Back-end data collector built in C#, Front-end built with Flask and HTML templates. Uses MongoDB to track drops.
-      - This is how I learned the hard way that I need to branch out from my comfort zone in Python to be decent at web dev.
+      - This is how I learned the hard way that I need to branch out from my comfort zone in Python to be decent at web dev. In any case this was a cool project and I want to eventually get back to it when I have time.
 
 #### Contact
 TBD
