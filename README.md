@@ -14,10 +14,13 @@ _This usually indicates personal progress during the course of the project, rath
 _In fact, it usually means the opposite since it usually involves me doing something for the first time_
   - [GalaxyGen](https://github.com/Bytestorm5/GalaxyGen)
       - Pseudo-Random Galaxy Generator following the Star Wars "Hyperlane" system. Includes web editor and various tools to tune/modify the output.
+      - This was born more because my (non-technical) friend group needed a tool like this, which posed an interesting challenge of making something that a non-technical user could understand and run. I don't think I achieved that strictly speaking, but it was good enough for my friends so I count that as a win.
   - [Chess Bot Thunderdome](https://github.com/Bytestorm5/ChessBot-Thunderdome) : [Website](https://thunderdome.yeruman.dev/)
       - Full Stack application for simulating chess games between a set of subpar chess engines- includes functionality for combining engines to emulate ensemble learning. Back-end built in Rust, Front-end built in React. Uses MongoDB Database to store game data.
+      - This was my first serious foray into both Rust and React, while also being my first serious look into making a chess engine. Lots of firsts here, very fun project overall.
   - [Stingus Stats](https://stingus.yeruman.dev/)
       - Full stack application for generating statistics of item drop rates in Destiny 2. Back-end data collector built in C#, Front-end built with Flask and HTML templates. Uses MongoDB to track drops.
+      - This is how I learned the hard way that I need to branch out from my comfort zone in Python to be decent at web dev.
 
 #### Contact
 TBD
