@@ -2,13 +2,11 @@
 I'm a college student that loves to program, and is aiming for a career in AI/ML. This account is where the majority of my personal projects are developed and made available. I believe in learning by doing, this profile being a testament to that. 
 
 #### What I'm working on
- - Making my own LMs
  - Building a Portfolio Website/Blog
 
 #### What I'm trying to learn
- - Jira, Terraform, all the cool professional coder stuff
- - SaaS Pegasus / Django
- - Stonks
+ - Genetic Algorithms
+ - Nginx & Proper Server setup
 
 #### Projects I'm proud of
 _This usually indicates personal progress during the course of the project, rather than indicating good code._
