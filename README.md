@@ -1,5 +1,5 @@
 ### Hey there
-I'm a college student that loves to program, and is aiming for a career in AI/ML. This account is where the majority of my personal projects are developed and made available. I believe in learning by doing, this profile being a testament to that. 
+I'm a Early-Career Data Scientist hoping to build a career in AI/ML research. This account is where the majority of my personal projects are developed and made available. I believe in learning by doing, this profile being a testament to that. While my focus is ML, I dip my toes in all aspects of programming because A. it's fun and B. it makes me a better programmer when I have to do real work.
 
 #### What I'm working on
  - Building a Portfolio Website/Blog
