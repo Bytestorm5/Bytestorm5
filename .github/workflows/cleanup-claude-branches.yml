@@ -73,11 +73,10 @@ jobs:
           kept=0
 
           # List every remote branch under the prefix.
+          # strip=3 removes "refs/remotes/origin/", so these already include the prefix.
           branches=$(git for-each-ref --format='%(refname:strip=3)' "refs/remotes/origin/${PREFIX%/}" || true)
 
-          for branch in $branches; do
-            full="${PREFIX%/}/$branch"
-
+          for full in $branches; do
             # Commits on the base branch that are missing from this branch.
             behind=$(git rev-list --count "origin/$full..origin/$BASE_BRANCH")
 
