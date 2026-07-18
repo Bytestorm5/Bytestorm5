@@ -1,0 +1,118 @@
+name: Cleanup stale claude/ branches (reusable)
+
+on:
+  workflow_call:
+    inputs:
+      max_behind:
+        description: "Delete branches strictly more than N commits behind the base branch"
+        type: number
+        required: false
+        default: 5
+      base_branch:
+        description: "Branch to measure staleness against"
+        type: string
+        required: false
+        default: main
+      dry_run:
+        description: "Only report what would be deleted"
+        type: boolean
+        required: false
+        default: false
+      skip_open_prs:
+        description: "Keep branches that still have an open pull request"
+        type: boolean
+        required: false
+        default: true
+      prefix:
+        description: "Branch prefix to clean up"
+        type: string
+        required: false
+        default: claude/
+    outputs:
+      deleted:
+        description: "Number of branches deleted (or that would be, in dry run)"
+        value: ${{ jobs.cleanup.outputs.deleted }}
+
+permissions:
+  contents: write
+  pull-requests: read
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    outputs:
+      deleted: ${{ steps.prune.outputs.deleted }}
+    env:
+      BASE_BRANCH: ${{ inputs.base_branch }}
+      MAX_BEHIND: ${{ inputs.max_behind }}
+      DRY_RUN: ${{ inputs.dry_run }}
+      SKIP_OPEN_PRS: ${{ inputs.skip_open_prs }}
+      PREFIX: ${{ inputs.prefix }}
+      GH_TOKEN: ${{ github.token }}
+
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch all branches
+        run: git fetch --prune origin "+refs/heads/*:refs/remotes/origin/*"
+
+      - name: Prune stale branches
+        id: prune
+        run: |
+          set -euo pipefail
+
+          if ! git show-ref --verify --quiet "refs/remotes/origin/$BASE_BRANCH"; then
+            echo "::error::Base branch '$BASE_BRANCH' not found on origin"
+            exit 1
+          fi
+
+          deleted=0
+          kept=0
+
+          # List every remote branch under the prefix.
+          branches=$(git for-each-ref --format='%(refname:strip=3)' "refs/remotes/origin/${PREFIX%/}" || true)
+
+          for branch in $branches; do
+            full="${PREFIX%/}/$branch"
+
+            # Commits on the base branch that are missing from this branch.
+            behind=$(git rev-list --count "origin/$full..origin/$BASE_BRANCH")
+
+            if [ "$behind" -le "$MAX_BEHIND" ]; then
+              echo "keep   $full ($behind behind)"
+              kept=$((kept + 1))
+              continue
+            fi
+
+            if [ "$SKIP_OPEN_PRS" = "true" ]; then
+              open_prs=$(gh pr list --repo "$GITHUB_REPOSITORY" --head "$full" --state open --json number --jq 'length')
+              if [ "$open_prs" -gt 0 ]; then
+                echo "keep   $full ($behind behind, open PR)"
+                kept=$((kept + 1))
+                continue
+              fi
+            fi
+
+            if [ "$DRY_RUN" = "true" ]; then
+              echo "would delete $full ($behind behind)"
+            else
+              echo "delete $full ($behind behind)"
+              git push origin --delete "$full"
+            fi
+            deleted=$((deleted + 1))
+          done
+
+          echo "deleted=$deleted" >> "$GITHUB_OUTPUT"
+
+          {
+            echo "### ${PREFIX} branch cleanup"
+            echo ""
+            echo "- Repository: \`$GITHUB_REPOSITORY\`"
+            echo "- Threshold: more than $MAX_BEHIND commits behind \`$BASE_BRANCH\`"
+            echo "- Dry run: $DRY_RUN"
+            echo "- Deleted: $deleted"
+            echo "- Kept: $kept"
+          } >> "$GITHUB_STEP_SUMMARY"
